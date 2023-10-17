@@ -11,6 +11,7 @@ public class Reservation {
 	private final int id;
 	private LocalDateTime date;
 	private int extraTotal = 0;
+	private ArrayList<Integer> extras;
 
 	public Reservation(int id, LocalDateTime date, Customer customer, Court court) {
 		NEXT_ID++;

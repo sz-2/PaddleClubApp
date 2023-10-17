@@ -1,5 +1,7 @@
 package org.ulpgc.is.model;
 
+import java.util.Objects;
+
 public class Customer {
 	private String name;
 	private String surname;
@@ -33,5 +35,13 @@ public class Customer {
 
 	public void setNif(NIF nif) {
 		this.nif = nif;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Customer customer = (Customer) o;
+		return Objects.equals(name, customer.name) && Objects.equals(surname, customer.surname) && Objects.equals(nif, customer.nif);
 	}
 }
