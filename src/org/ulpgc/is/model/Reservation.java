@@ -7,10 +7,10 @@ public class Reservation {
 
 	private Customer customer;
 	private Court court;
-	private ArrayList<Extra> extra;
 	private static int NEXT_ID = 0;
 	private final int id;
 	private LocalDateTime date;
+	private int extraTotal = 0;
 
 	public Reservation(int id, LocalDateTime date, Customer customer, Court court) {
 		NEXT_ID++;
@@ -33,11 +33,11 @@ public class Reservation {
 	}
 
 	public int price(){
-		return this.court.getPrice();
+		return this.court.getPrice() + this.extraTotal;
 	}
 
-	public void extra(Extra extra){
-		this.extra.add(extra);
+	public void addExtra(Extra extra){
+		this.extraTotal += extra.getPrice();
 	}
 
 }
