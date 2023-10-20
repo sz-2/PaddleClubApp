@@ -1,5 +1,6 @@
 package org.ulpgc.is.model;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Customer {
@@ -42,6 +43,15 @@ public class Customer {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 		Customer customer = (Customer) o;
-		return Objects.equals(name, customer.name) && Objects.equals(surname, customer.surname) && Objects.equals(nif, customer.nif);
+		return Objects.equals(nif, customer.nif);
+	}
+
+	@Override
+	public String toString() {
+		return "Customer{" +
+				"name='" + name + '\'' +
+				", surname='" + surname + '\'' +
+				", nif=" + nif +
+				'}';
 	}
 }

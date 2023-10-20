@@ -35,4 +35,13 @@ public class Court {
 	public void setType(CourtType type) {
 		this.type = type;
 	}
+
+	@Override
+	public String toString() {
+		return "Court{" +
+				"name='" + name + '\'' +
+				", price=" + price +
+				", type=" + type +
+				'}';
+	}
 }

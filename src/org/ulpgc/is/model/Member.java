@@ -3,8 +3,8 @@ package org.ulpgc.is.model;
 public class Member extends Customer{
 	private int points;
 	private Address address;
-	public Member(int points, String name, String surname, NIF nif,
-				  String street, int number,int postalCode, String city) {
+	public Member(String name, String surname, NIF nif,
+				  String street, int number,int postalCode, String city, int points) {
 		super(name, surname, nif);
 		this.points = points;
 		this.address = new Address(street, number, postalCode, city);

@@ -6,7 +6,11 @@ public class NIF {
 	private String number;
 
 	public NIF(String number) {
-		this.number = number;
+		 if (isValid(number)){
+			 this.number = number;
+		 }else{
+			 this.number = "XXXX";
+		 }
 	}
 
 	public String getNumber() {
@@ -14,22 +18,23 @@ public class NIF {
 	}
 
 	public void setNumber(String number) {
-		this.number = number;
+		if (isValid(number)){
+			this.number = number;
+		}else{
+			this.number = "XXXX";
+		}
 	}
 
 	public boolean isValid(String nif){
-
-		// Eliminar espacios en blanco y convertir a mayúsculas.
-
-		nif = nif.trim().toUpperCase();
-
 		// Comprobar si el NIF tiene el formato correcto
-
 		Pattern pattern = Pattern.compile("^[0-9]{8}[A-Z]$");
-		Matcher matcher = pattern.matcher(nif);
+		Matcher matcher = pattern.matcher(nif.trim().toUpperCase());
 
 		return matcher.matches();
+	}
 
-
+	@Override
+	public String toString() {
+		return  number;
 	}
 }
