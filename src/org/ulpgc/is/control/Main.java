@@ -6,18 +6,21 @@ import java.time.LocalDate;
 
 public class Main {
 
+	public static void init(PaddleManager paddleManager) {
+		paddleManager.addMember("Juan", "Travieso", new NIF("45329946B"), "Tomas Morales", 34, 35209, "Las Palmas", 100);
+		paddleManager.addCustomer("Pedro", "Ruíz", new NIF("12SD34TT4"));
+		paddleManager.addCourt("Alisios", 25, CourtType.FastCourt);
+		paddleManager.addCourt("Siete Palmas", 20, CourtType.SlowCourt);
+	}
+
 	public static void main(String[] args) {
 
 		PaddleManager paddleManager = new PaddleManager();
-		paddleManager.addCustomer("Pedro", "Ruíz", new NIF("45329946B"));
-		paddleManager.addMember("Juan", "Travieso", new NIF("12SD34TT4"), "Tomas Morales", 34, 35209, "Las Palmas", 100);
 
-		paddleManager.addCourt("Alisios", 25, CourtType.FastCourt);
-		paddleManager.addCourt("Siete Palmas", 20, CourtType.SlowCourt);
-
+		init(paddleManager);
 
 		// Imprimir por pantalla los NIF válidos de los clientes del club.
-		for(Customer customer: paddleManager.getCustomer()){
+		for (Customer customer : paddleManager.getCustomer()) {
 			if (!customer.getNif().getNumber().equals("XXXX")) {
 				System.out.println(customer.getNif());
 			}
@@ -25,7 +28,6 @@ public class Main {
 
 		// Imprimir por pantalla los datos del primer cliente.
 		System.out.println(paddleManager.getCustomer().get(0));
-
 
 		//Imprimir por pantalla los datos del segundo cliente.
 		System.out.println(paddleManager.getCustomer().get(1));

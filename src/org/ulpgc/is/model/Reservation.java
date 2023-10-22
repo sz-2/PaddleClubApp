@@ -54,10 +54,10 @@ public class Reservation {
 	@Override
 	public String toString() {
 		return "Reservation" +
-				"{ customer=" + customer.getName() + customer.getSurname() +
-				", court=" + court.getType() +
-				", date=" + date +
-				", price=" + price() +
+				"{customer= " + customer.getName() + " " + customer.getSurname() +
+				", court= " + court.getName() +
+				", date= " + date +
+				", price= " + price() +
 				'}';
 	}
 }
